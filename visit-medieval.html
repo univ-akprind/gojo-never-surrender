@@ -1,0 +1,495 @@
+<!--
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣶⣖⣒⠒⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠷⣶⡶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣯⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠞⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⢿⣶⠿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⡶⠿⠷⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠁⣠⡾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⣠⣴⡾⠿⠧⣴⣶⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣇⠉⠙⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡿⠃⠀⠀⠀⣠⣰⣶⠀⠀⣼⡇⣴⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡟⣡⠀⣠⠀⣠⣿⣿⡏⠀⣠⣿⣿⠻⣿⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⢠⣄⠹⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣟⡴⣿⢀⣿⣼⣿⡿⣿⠀⣼⣿⣿⣏⢀⣙⣷⣼⣧⣶⡀⠀⠀⡄⠀⠀⠀⣼⣷⡀⠀⠀⠀⣿⣿⢿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⣼⠟⠋⢀⣯⣼⣧⣿⣿⢿⣿⣼⣿⣿⣿⣿⣿⣥⣌⣿⣿⣿⣇⡀⢠⣿⣀⠀⢸⣿⣟⣧⠀⠀⠀⢹⣿⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⡟⠻⣿⡇⢸⣿⠇⠙⠲⠾⠿⠿⠿⣿⣿⣇⣸⣿⣿⠀⣾⣿⣿⣿⠀⠀⠀⣾⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⣿⡟⣏⣿⠁⢠⣿⠀⠸⣿⠀⠀⠀⠀⠀⠀⠀⠛⣿⣿⡟⢹⣿⡇⣿⣿⣿⣿⠀⠀⠀⣿⠻⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢹⡿⣿⣻⡆⢸⠏⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠘⠟⠀⢸⣿⣷⡿⠟⣿⣿⠀⠀⣸⡇⠀⠈⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠁⣿⣿⣿⡾⣦⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⡿⠀⢸⣿⡏⠀⢠⣿⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⢹⠇⢧⠀⠙⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⡇⠀⢸⣿⡇⣀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠸⠇⠈⣇⠐⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⡇⠀⣿⣿⣿⣿⣸⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡆⠀⠀⠉⠙⠒⠀⠀⠀⢀⣤⣾⣿⣿⣿⡟⠀⣰⣿⡿⢻⣿⣿⣿⣿⣿⣶⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡄⠀⠀⠀⠀⢀⣠⣶⣿⣿⣿⣿⣿⡟⠀⠐⠋⠁⠀⢸⣿⣿⡇⢻⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣻⣦⣤⣴⣶⣿⣿⣿⣿⣷⣾⣿⠏⠀⠀⠀⠀⠀⠀⠀⢿⣿⡇⢸⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⠀⠀⢀⣴⣿⡀⠀⠀⢀⣀⣠⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⠁⣿⣿⣿⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣿⣤⣴⣿⣿⣧⣴⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⡛⠋⢹⣿⠏⠀⠀⠀⣼⠁⠀⠀⠀⠀⣰⠃⢀⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣀⠀⠀⠀⠀⠀⠀
+⢀⡠⢴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⡇⢹⡇⠀⠀⡀⠀⠀⢀⣼⠃⠀⠀⠀⠀⣠⠇⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣤⣀⡀
+// それともあんたの力ってのはこの程度だって言いてえのか？
+// Versi: 1.0
+// Powered by Gojo SEOtoru
+// Welcome to ALX Group Assets
+-->
+<!doctype html>
+<html lang="id" amp itemscope itemtype="https://schema.org/WebPage">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>Selamat Datang di ALEXISTOGEL Resmi</title>
+    <meta name="description"
+        content="Selamat Datang di ALEXISTOGEL Resmi dimana Anda bisa mendapatkan seluruh akses permainan menyenangkan hanya dalam 1 akun dan minimal deposit hanya 5ribu layanan transaksi qris payment 1 detik.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08111f">
+    <link rel="canonical" href="https://www.visit-medieval-spain.com/heroes.html">
+    <link rel="shortcut icon" href="https://kilat.digital/images/2023/12/13/067a6dbaedf867ecca980a732729ed54.png">
+    <link rel="preload" as="image" href="https://kilat.digital/images/2025/09/25/0fa8521e1510515c9f67aa259b8b4fb2.gif">
+    <link rel="preload" as="image" href="https://kilat.digital/images/2026/02/19/98e8ac8af7e1c81db521f31011802637.jpg">
+
+    <meta property="og:title" content="Selamat Datang di ALEXISTOGEL Resmi">
+    <meta property="og:description"
+        content="Selamat Datang di ALEXISTOGEL Resmi dimana Anda bisa mendapatkan seluruh akses permainan menyenangkan hanya dalam 1 akun dan minimal deposit hanya 5ribu layanan transaksi qris payment 1 detik.">
+    <meta property="og:image" content="https://kilat.digital/images/2026/02/19/98e8ac8af7e1c81db521f31011802637.jpg">
+    <meta property="og:url" content="https://www.visit-medieval-spain.com/heroes.html">
+    <meta property="og:site_name" content="alexistogel">
+    <meta property="og:locale" content="id_ID">
+    <meta name="og:site_name" content="alexistogel">
+    <meta name="og:locale" content="ID_id">
+    <meta name="categories" content="alexistogel" />
+    <meta name="language" content="ID">
+    <meta name="rating" content="general">
+    <meta name="copyright" content="alexistogel">
+    <meta name="author" content="alexistogel">
+    <meta name="distribution" content="global">
+    <meta name="publisher" content="alexistogel">
+    <meta name="geo.placename" content="DKI Jakarta">
+    <meta name="geo.country" content="ID">
+    <meta name="geo.region" content="ID" />
+    <meta name="tgn.nation" content="Indonesia">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Selamat Datang di ALEXISTOGEL Resmi">
+    <meta name="twitter:description"
+        content="Selamat Datang di ALEXISTOGEL Resmi dimana Anda bisa mendapatkan seluruh akses permainan menyenangkan hanya dalam 1 akun dan minimal deposit hanya 5ribu layanan transaksi qris payment 1 detik.">
+    <meta name="twitter:image" content="https://kilat.digital/images/2026/02/19/98e8ac8af7e1c81db521f31011802637.jpg">
+
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+    <style amp-custom>
+        :root {
+            --bg: #050b14;
+            --bg-soft: #0a1322;
+            --panel: rgba(10, 20, 34, .82);
+            --panel-2: rgba(19, 36, 58, .78);
+            --text: #eaf4ff;
+            --muted: #c2d5ea;
+            --line: rgba(120, 210, 255, .22);
+            --primary: #67d6ff;
+            --primary-2: #8cfcff;
+            --accent: #7b61ff;
+            --glow: 0 0 0 1px rgba(255, 126, 126, 0.16), 0 0 24px rgba(255, 84, 84, 0.14), 0 0 48px rgba(255, 97, 97, 0.08);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            background:
+                linear-gradient(rgba(18, 4, 4, 0.72), rgba(18, 4, 4, 0.82)),
+                url("https://kilat.digital/images/2026/04/02/c711694da3050b2499cc42ed5610f7d5.png") center center / cover no-repeat fixed;
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text)
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px
+        }
+
+        .section-gap {
+            margin-top: 20px
+        }
+
+        .acenter {
+            text-align: center
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(14px);
+            background: rgba(20, 5, 5, 0.78);
+            border-bottom: 1px solid rgb(255 198 0);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .28);
+        }
+
+        .nav-inner {
+            padding: 14px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0;
+        }
+
+        .logo-desktop {
+            width: min(260px, 48vw);
+            margin: 22px auto 10px;
+            padding: 10px 18px;
+            border: 1px solid rgb(255 198 0);
+            border-radius: 22px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
+            box-shadow: var(--glow);
+        }
+
+        .logo-mobile {
+            width: 180px;
+            padding: 8px 14px;
+            border: 1px solid rgb(255 198 0);
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
+            box-shadow: var(--glow);
+        }
+
+        .hero {
+            padding: 28px 0 10px;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, rgba(58, 19, 19, 0.92), rgba(34, 10, 10, 0.9));
+            border: 1px solid rgb(255 198 0);
+            border-radius: 24px;
+            box-shadow: var(--glow);
+            padding: 24px 18px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-card:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 126, 126, 0.08), transparent 35%, rgba(255, 97, 97, 0.06) 100%);
+            pointer-events: none;
+        }
+
+        .headline {
+            font-size: clamp(22px, 4vw, 34px);
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: .2px;
+            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 0 0 18px rgba(255, 84, 84, 0.15);
+        }
+
+        .subheadline {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 760px;
+            margin: 0 auto 18px;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: .25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #1b0303;
+            box-shadow: 0 10px 30px rgba(255, 84, 84, 0.28);
+            border: 1px solid rgba(255, 255, 255, .14);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #3e1818, #260d0d);
+            color: #eaf4ff;
+            border: 1px solid rgb(255 198 0);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .26);
+        }
+
+        .title-banner {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(255, 84, 84, 0.12), rgba(255, 97, 97, 0.12));
+            border: 1px solid rgb(255 198 0);
+            box-shadow: var(--glow);
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+        }
+
+        .media-card,
+        .promo-card,
+        .footer-card {
+            background: linear-gradient(180deg, rgba(46, 15, 15, 0.96), rgba(34, 10, 10, 0.94));
+            border: 1px solid rgb(255 198 0);
+            border-radius: 22px;
+            box-shadow: var(--glow);
+            overflow: hidden;
+        }
+
+        .carousel-shell {
+            padding: 12px;
+        }
+
+        .carousel-shell amp-img,
+        .promo-image amp-img {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .promo-image {
+            padding: 12px;
+        }
+
+        .footer-card {
+            padding: 24px 16px;
+            margin: 28px 0 36px;
+            text-align: center;
+        }
+
+        .footer-note {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .footer-note a {
+            color: var(--primary-2);
+            font-weight: 700;
+        }
+
+        .spacer {
+            height: 10px
+        }
+
+        @media (max-width:768px) {
+            .hero {
+                padding-top: 20px
+            }
+
+            .cta-grid {
+                grid-template-columns: 1fr
+            }
+
+            .headline {
+                font-size: 24px
+            }
+
+            .subheadline {
+                font-size: 14px
+            }
+
+            .logo-desktop {
+                display: none
+            }
+        }
+
+        @media (min-width:769px) {
+            .logo-mobile {
+                display: none
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"alexistogel",
+    "url":"https://www.visit-medieval-spain.com/heroes.html",
+    "logo":"https://kilat.digital/images/2025/09/25/0fa8521e1510515c9f67aa259b8b4fb2.gif"
+  }
+  </script>
+
+    <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Selamat Datang di ALEXISTOGEL Resmi",
+    "url":"https://www.visit-medieval-spain.com/heroes.html",
+    "description":"Selamat Datang di ALEXISTOGEL Resmi dimana Anda bisa mendapatkan seluruh akses permainan menyenangkan hanya dalam 1 akun dan minimal deposit hanya 5ribu layanan transaksi qris payment 1 detik."
+  }
+  </script>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <div class="logo-mobile">
+                <a href="https://www.visit-medieval-spain.com/heroes.html" title="alexistogel">
+                    <amp-img src="https://kilat.digital/images/2025/09/25/0fa8521e1510515c9f67aa259b8b4fb2.gif"
+                        alt="alexistogel" width="244" height="78" layout="responsive"></amp-img>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="logo-desktop acenter">
+                <a href="https://www.visit-medieval-spain.com/heroes.html" title="alexistogel">
+                    <amp-img src="https://kilat.digital/images/2025/09/25/0fa8521e1510515c9f67aa259b8b4fb2.gif"
+                        alt="alexistogel" width="244" height="78" layout="responsive"></amp-img>
+                </a>
+            </div>
+
+            <div class="hero-card acenter">
+                <h1 class="headline">Selamat Datang di ALEXISTOGEL Resmi</h1>
+                <p class="subheadline">
+                    Selamat Datang di ALEXISTOGEL Resmi dimana Anda bisa mendapatkan seluruh akses permainan menyenangkan hanya dalam 1 akun dan minimal deposit hanya 5ribu layanan transaksi qris payment 1 detik.
+                </p>
+
+                <div class="cta-grid">
+                    <a class="btn btn-primary" href="https://kilat.io/seogojo" target="_blank"
+                        rel="nofollow noreferrer">Daftar</a>
+                    <a class="btn btn-secondary" href="https://kilat.io/daftar2" target="_blank"
+                        rel="nofollow noreferrer">Login</a>
+                </div>
+
+                <div class="title-banner">
+                    Platform ini dirancang untuk memastikan setiap pengunjung dapat menemukan link alexistogel yang aktif.
+                </div>
+            </div>
+        </section>
+
+        <section class="media-card section-gap">
+            <div class="carousel-shell">
+                <amp-carousel layout="responsive" width="1280" height="720" type="slides" autoplay delay="5000" loop>
+                    <a href="https://www.visit-medieval-spain.com/heroes.html" target="_blank" rel="nofollow noreferrer">
+                        <amp-img src="https://kilat.digital/images/2026/02/19/98e8ac8af7e1c81db521f31011802637.jpg"
+                            alt="alexistogel" width="1280" height="720" layout="responsive"></amp-img>
+                    </a>
+                </amp-carousel>
+            </div>
+        </section>
+
+        <section class="promo-card section-gap">
+            <div class="promo-image">
+                <amp-img src="https://kilat.digital/images/2025/04/20/562281006ec5d7e71cd58164597acac0.gif"
+                    alt="alexistogel" width="792" height="130" layout="responsive"></amp-img>
+            </div>
+        </section>
+
+        <section class="footer-card">
+            <p class="footer-note">
+                &copy; 2026 <a href="https://www.visit-medieval-spain.com/heroes.html"><strong>ALEXISTOGEL</strong></a>. All rights
+                reserved.
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
